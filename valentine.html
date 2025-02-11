@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8e1e1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+        h1 {
+            color: #d9534f;
+            font-size: 3em;
+        }
+        .button-container {
+            margin-top: 20px;
+        }
+        .btn {
+            padding: 15px 30px;
+            font-size: 1.5em;
+            color: white;
+            background-color: #d9534f;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background-color: #c9302c;
+        }
+        .heart-container {
+            display: none;
+            margin-top: 20px;
+        }
+        .heart-container img {
+            width: 200px;
+            border-radius: 50%;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        .heart-container p {
+            font-size: 1.5em;
+            color: #d9534f;
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <h1>Will you be my Valentine?</h1>
+        <div class="button-container">
+            <button class="btn" id="yesButton">Yes</button>
+            <button class="btn" id="noButton">No</button>
+        </div>
+        <p id="response"></p>
+
+        <div class="heart-container" id="heartContainer">
+            <img src="romantic.jpg" alt="Couple in Heart" id="heartImage">
+            <p id="romanticMessage"></p>
+        </div>
+    </div>
+
+    <script>
+        const yesButton = document.getElementById('yesButton');
+        const noButton = document.getElementById('noButton');
+        const responseText = document.getElementById('response');
+        const heartContainer = document.getElementById('heartContainer');
+        const romanticMessage = document.getElementById('romanticMessage');
+
+        yesButton.addEventListener('click', () => {
+            responseText.innerHTML = "";
+            heartContainer.style.display = 'block';
+            romanticMessage.innerHTML = "I’m so happy you said yes! <3 You're the love of my life!";
+        });
+
+        noButton.addEventListener('click', () => {
+            // Randomize position for the No button
+            const randomX = Math.random() * 80 + '%';
+            const randomY = Math.random() * 80 + '%';
+            noButton.style.position = 'absolute';
+            noButton.style.top = randomY;
+            noButton.style.left = randomX;
+        });
+    </script>
+
+</body>
+</html>
